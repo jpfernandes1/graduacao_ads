@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora Básica</title>
+</head>
+<body>
+
+    <form>
+        <div>
+        <p class="simple_text">Valor A</p>
+        <input type="number" id="valor_a">
+        <p class="simple_text">Valor B</p>
+        <input type="number" id="valor_b">
+        <p class="simple_text">Operação</p>
+        <select id="operacao">
+            <option>Somar</option>
+            <option>Subtrair</option>
+            <option>Multiplicar</option>
+            <option>Dividir</option>
+        </select>
+        </div>
+        <a href="#" id="botao_executar" onclick="calcula()">Executar</a>
+
+    </form>
+
+    <div id="resposta">O resultado da operação é: </div>
+
+     <script src="calculadora.js"></script>
+        <script>
+            const calcula = () => {
+                const a = eval(document.getElementById('valor_a').value);
+                const b = eval(document.getElementById('valor_b').value);
+                let operacao = eval(document.getElementById('operacao').selectedIndex);
+                let resultado = (operacao == 0)?somar(a,b):(operacao==1)?subtrair(a,b):
+                                (operacao == 2)?multiplicar(a,b):dividir(a,b);
+
+                document.getElementById("resposta").innerHTML =
+                    `O resultado da operação é ${resultado}`;
+            }
+                      
+        </script>
+</body>
+</html>
